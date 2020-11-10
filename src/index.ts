@@ -19,7 +19,7 @@ class OssSrc {
         return this;
     }
 
-    getUrl(): String {
+    getUrl() {
         return this.url;
     }
 }
