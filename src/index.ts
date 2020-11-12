@@ -11,6 +11,15 @@ class OssSrc {
         this.url += '?x-oss-process=image';
         return this;
     }
+
+    private objToSring(obj: any) {
+        let str = '';
+        for (let key of Object.keys(obj)) {
+            str += `,${key}_${obj[key]}`;
+        }
+
+        return str;
+    }
     /*
      * 设置图片格式 建议放在最后处理
      * https://help.aliyun.com/document_detail/44703.html
@@ -19,6 +28,7 @@ class OssSrc {
         this.url += `/format,${type}`;
         return this;
     }
+
     /**
      * @param {number}  value 旋转角度
      *
@@ -29,13 +39,45 @@ class OssSrc {
         this.url += `/rotate,${value}`;
         return this;
     }
+
     /**图片缩放
      * @param {}
      */
     resize(m: 'lfit' | 'mfit' | 'fill' | 'pad' | 'fixed' = 'lfit', w: number, h: number) {
-        this.url += `/resize,m_${m},h_${h},w_${w}`;
+        const obj = {
+            m,
+            w,
+            h,
+        };
+        this.url += `/resize${this.objToSring(obj)}`;
         return this;
     }
+
+    /**图片缩放
+     * @param {}
+     */
+    watermarkLocation(t: number, g: string, x: number, y: number, voffset: number) {
+        const obj = {
+            t,
+            g,
+            x,
+            y,
+            voffset,
+        };
+        this.url += `/watermark${this.objToSring(obj)}`;
+        return this;
+    }
+
+    watermarkText(text: string, type: string = 'd3F5LXplbmhlaQ') {
+        if (this.url.indexOf('watermark') === -1) throw Error('must call watermarkLocation first');
+        const obj = {
+            text,
+            type,
+        };
+        this.url += `${this.objToSring(obj)}`;
+        return this;
+    }
+
     getUrl() {
         return this.url;
     }

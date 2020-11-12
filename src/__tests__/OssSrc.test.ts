@@ -14,6 +14,26 @@ test('resize', () => {
     expect(
         new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg').resize('fixed', 100, 100).getUrl(),
     ).toBe(
-        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_fixed,h_100,w_100',
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_fixed,w_100,h_100',
+    );
+});
+
+test('watermarkLocation', () => {
+    expect(
+        new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg')
+            .watermarkLocation(100, 'center', 1, 1, 1)
+            .getUrl(),
+    ).toBe(
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/watermark,t_100,g_center,x_1,y_1,voffset_1',
+    );
+});
+test('watermarkText', () => {
+    expect(
+        new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg')
+            .watermarkLocation(100, 'center', 1, 1, 1)
+            .watermarkText('MTIxMg==')
+            .getUrl(),
+    ).toBe(
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/watermark,t_100,g_center,x_1,y_1,voffset_1,text_MTIxMg==,type_d3F5LXplbmhlaQ',
     );
 });
