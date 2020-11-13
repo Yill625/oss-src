@@ -57,25 +57,24 @@ class OssSrc {
      * @param {}
      */
     watermarkLocation(t: number, g: string, x: number, y: number, voffset: number) {
-        const obj = {
+        this.url += `/watermark${this.objToSring({
             t,
             g,
             x,
             y,
             voffset,
-        };
-        this.url += `/watermark${this.objToSring(obj)}`;
+        })}`;
         return this;
     }
 
     watermarkText(text: string, type: string = 'd3F5LXplbmhlaQ') {
         if (this.url.indexOf('watermark') === -1) throw Error('must call watermarkLocation first');
-        const obj = {
-            text,
-            type,
-        };
-        this.url += `${this.objToSring(obj)}`;
+        this.url += `${this.objToSring({text,type})}`;
         return this;
+    }
+    roundedCorners(r:number){
+        this.url += `/rounded-corners${this.objToSring({r})}`;
+        return this; 
     }
 
     getUrl() {
