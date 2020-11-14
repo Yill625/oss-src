@@ -22,7 +22,12 @@
         "type": "git",
         "url": "git+https://github.com/Yill625/oss-src.git"
     },
-    "keywords": [],
+    "keywords": [
+        "oss",
+        "url",
+        "image",
+        "aliyun"
+    ],
     "author": "",
     "license": "ISC",
     "bugs": {
