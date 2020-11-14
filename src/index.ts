@@ -1,4 +1,7 @@
 // https://help.aliyun.com/document_detail/183902.html?spm=a2c4g.11174283.6.731.2e5a7da2XS98Z9
+
+import { encode } from 'base64-url';
+
 class OssSrc {
     private url: string;
 
@@ -71,7 +74,7 @@ class OssSrc {
     watermarkText(text: string, type: string = 'd3F5LXplbmhlaQ') {
         if (this.url.indexOf('watermark') === -1) throw Error('must call watermarkLocation first');
         const obj = {
-            text,
+            text: encode(text),
             type,
         };
         this.url += `${this.objToSring(obj)}`;

@@ -31,9 +31,9 @@ test('watermarkText', () => {
     expect(
         new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg')
             .watermarkLocation(100, 'center', 1, 1, 1)
-            .watermarkText('MTIxMg==')
+            .watermarkText('我们')
             .getUrl(),
     ).toBe(
-        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/watermark,t_100,g_center,x_1,y_1,voffset_1,text_MTIxMg==,type_d3F5LXplbmhlaQ',
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/watermark,t_100,g_center,x_1,y_1,voffset_1,text_5oiR5Lus,type_d3F5LXplbmhlaQ',
     );
 });
