@@ -37,3 +37,13 @@ test('watermarkText', () => {
         'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/watermark,t_100,g_center,x_1,y_1,voffset_1,text_5oiR5Lus,type_d3F5LXplbmhlaQ',
     );
 });
+
+test('roundedCorners', () => {
+    expect(
+        new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg')
+            .roundedCorners(50)
+            .getUrl()
+    ).toBe(
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_50',
+    );
+});
