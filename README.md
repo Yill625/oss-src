@@ -13,7 +13,7 @@ npm install oss-src
 ```js
 import OssSrc from 'oss-src';
 // change image type
-const newUrl = new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg').format('webp');
+const newUrl = new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg').format('webp').getUrl();
 ```
 
 ![to-webp](https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/format,webp)
