@@ -39,11 +39,7 @@ test('watermarkText', () => {
 });
 
 test('roundedCorners', () => {
-    expect(
-        new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg')
-            .roundedCorners(50)
-            .getUrl()
-    ).toBe(
+    expect(new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg').roundedCorners(50).getUrl()).toBe(
         'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_50',
     );
 });
