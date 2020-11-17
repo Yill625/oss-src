@@ -55,7 +55,7 @@ class OssSrc {
         return this;
     }
 
-    /**图片缩放
+    /**图片水印
      * @param {}
      */
     watermarkLocation(t: number, g: string, x: number, y: number, voffset: number) {
