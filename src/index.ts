@@ -17,7 +17,7 @@ class OssSrc {
 
     private objToSring(obj: any) {
         let str = '';
-        for (let key of Object.keys(obj)) {
+        for (const key of Object.keys(obj)) {
             str += `,${key}_${obj[key]}`;
         }
 
