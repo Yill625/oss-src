@@ -78,7 +78,10 @@ class OssSrc {
         this.url += `/rounded-corners${this.objToSring({ r })}`;
         return this;
     }
-
+    circle(r: number) {
+        this.url += `/circle${this.objToSring({ r })}`;
+        return this;
+    }
     getUrl() {
         return this.url;
     }

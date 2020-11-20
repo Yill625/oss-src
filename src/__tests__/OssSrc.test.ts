@@ -43,3 +43,9 @@ test('roundedCorners', () => {
         'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_50',
     );
 });
+
+test('circle', () => {
+    expect(new OssSrc('https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg').circle(50).getUrl()).toBe(
+        'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/circle,r_50',
+    );
+});
