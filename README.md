@@ -6,6 +6,8 @@
 -   [x] 格式转换
 -   [x] 图片水印
 
+[图形化地址](https://gosspublic.alicdn.com/image/index.html)
+
 1. install
 
 ```shell
